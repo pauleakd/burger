@@ -1,16 +1,17 @@
 require_relative('../db/sql_runner')
 
 class Burger
+  attr_reader :id, :name
   def initialize(data)
     @name = data['name']
-    @id = nil || data['id']
+    @id = nil || data['id'].to_i
   end
 
   def save()
     sql = "INSERT INTO burgers (name) VALUES ('#{@name}')
     RETURNING id;"
     result = SqlRunner.run(sql)
-    @id = result.first['id']
+    @id = result.first['id'].to_i
   end
 
   def self.all()

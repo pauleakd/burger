@@ -7,6 +7,10 @@ CREATE TABLE burgers (
   name VARCHAR(255)
 );
 
+CREATE TABLE days (
+  id SERIAL2 PRIMARY KEY,
+  name VARCHAR(255)
+);
 
 CREATE TABLE eateries (
   id SERIAL2 PRIMARY KEY,

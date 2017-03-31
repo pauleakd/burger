@@ -1,9 +1,10 @@
 class Deal
   attr_reader :name, :id
+  attr_accessor :menu_item_id
   def initialize(data)
     @name = data['name']
     @id = nil || data['id'].to_i
-    @menu_item_id = data['menu_item_id']
+    @menu_item_id = data['menu_item_id'].to_i
     @day_id = data['day_id'].to_i
   end
 
@@ -36,4 +37,12 @@ class Deal
      return burger_name
   end
 
+  def eatery()
+    sql = "SELECT name FROM eateries INNER JOIN menu_items
+     ON menu_items.eatery_id = eateries.id WHERE
+     menu_items.id = #{@menu_item_id} "
+     result = SqlRunner.run(sql)
+    eatery = result.first['name']
+     return eatery
+  end
 end

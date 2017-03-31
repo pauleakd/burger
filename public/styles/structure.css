@@ -9,6 +9,8 @@ body {
 
 nav p {
   display: inline-block;
+  /*border: black;*/
+  padding: 5px;
 }
 
 nav p a {

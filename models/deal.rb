@@ -27,4 +27,13 @@ class Deal
     SqlRunner.run(sql)
   end
 
+  def burger_name()
+    sql = "SELECT name FROM burgers INNER JOIN menu_items
+     ON menu_items.burger_id = burgers.id WHERE
+     menu_items.id = #{@menu_item_id} "
+     result = SqlRunner.run(sql)
+     burger_name = result.first['name']
+     return burger_name
+  end
+
 end

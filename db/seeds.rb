@@ -26,8 +26,6 @@ friday.save
 saturday.save
 sunday.save
 
-binding.pry
-
 burger1 = Burger.new({'name' =>"Cheeseburger"})
 burger1.save
 

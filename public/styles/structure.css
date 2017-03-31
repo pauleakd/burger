@@ -1,0 +1,23 @@
+h1 {
+  font-family: monospace;
+}
+
+body {
+  background-color: pink;
+  text-align: center;
+}
+
+nav p {
+  display: inline-block;
+}
+
+nav p a {
+  color: pink;
+}
+
+nav {
+  background-color: red;
+  width: 100%;
+  padding: 20px
+  border: 5px solid black;
+}

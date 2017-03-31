@@ -1,6 +1,9 @@
+DROP TABLE IF EXISTS deals;
 DROP TABLE IF EXISTS menu_items;
 DROP TABLE IF EXISTS burgers;
 DROP TABLE IF EXISTS eateries;
+DROP TABLE IF EXISTS days;
+
 
 CREATE TABLE burgers (
   id SERIAL2 PRIMARY KEY,
@@ -19,7 +22,15 @@ CREATE TABLE eateries (
 
 CREATE TABLE menu_items (
   id SERIAL2 PRIMARY KEY,
-  burger_id INT2 REFERENCES burgers(id),
-  eatery_id INT2 REFERENCES eateries(id),
+  burger_id INT2 REFERENCES burgers(id) ON DELETE CASCADE,
+  eatery_id INT2 REFERENCES eateries(id) ON DELETE CASCADE,
   price INT2
 );
+
+CREATE TABlE deals (
+  id SERIAL2 PRIMARY KEY,
+  name VARCHAR(255),
+  menu_item_id INT2 REFERENCES menu_items(id) ON DELETE CASCADE,
+  day_id INT2 REFERENCES days(id) ON DELETE CASCADE
+
+)

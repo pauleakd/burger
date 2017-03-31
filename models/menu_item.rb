@@ -1,6 +1,7 @@
 require_relative('../db/sql_runner')
 
 class MenuItem
+  attr_reader :id, :name
   def initialize(data)
     @burger_id = data['burger_id']
     @eatery_id = data['eatery_id']
@@ -9,7 +10,7 @@ class MenuItem
 
   def save()
     sql = "INSERT INTO menu_items (burger_id, eatery_id)
-     VALUES ('#{@burger_id}', '#{@eatery_id}')
+    VALUES ('#{@burger_id}', '#{@eatery_id}')
     RETURNING id;"
     result = SqlRunner.run(sql)
     @id = result.first['id'].to_i

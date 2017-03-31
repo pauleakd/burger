@@ -3,6 +3,11 @@ require_relative('../models/burger')
 require_relative('../models/eatery')
 require_relative('../models/menu_item')
 
+MenuItem.delete_all
+Burger.delete_all
+Eatery.delete_all
+
+
 burger1 = Burger.new({'name' =>"Cheeseburger"})
 burger1.save
 

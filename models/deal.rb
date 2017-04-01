@@ -45,4 +45,10 @@ class Deal
     eatery = result.first['name']
      return eatery
   end
+
+  def day()
+    sql = "SELECT name FROM days WHERE id = #{@day_id}"
+    result = SqlRunner.run(sql)
+    day = result.first['name']
+  end
 end

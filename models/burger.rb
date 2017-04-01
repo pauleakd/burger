@@ -14,6 +14,9 @@ class Burger
     @id = result.first['id'].to_i
   end
 
+  def eateries()
+    sql = ""
+
   def self.all()
     sql = "SELECT * FROM burgers"
     result = SqlRunner.run(sql)
@@ -25,5 +28,13 @@ class Burger
     sql = "DELETE FROM burgers"
     SqlRunner.run(sql)
   end
+
+  def self.find(id)
+    sql = "SELECT * FROM burgers WHERE id = #{id}"
+    result = SqlRunner.run(sql).first
+    return Burger.new(result)
+  end 
+
+
 
 end

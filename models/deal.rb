@@ -29,7 +29,7 @@ class Deal
   end
 
   def burger_name()
-    sql = "SELECT name FROM burgers INNER JOIN menu_items
+    sql = "SELECT burgers.name FROM burgers INNER JOIN menu_items
      ON menu_items.burger_id = burgers.id WHERE
      menu_items.id = #{@menu_item_id} "
      result = SqlRunner.run(sql)
@@ -38,7 +38,7 @@ class Deal
   end
 
   def eatery()
-    sql = "SELECT name FROM eateries INNER JOIN menu_items
+    sql = "SELECT eateries.name FROM eateries INNER JOIN menu_items
      ON menu_items.eatery_id = eateries.id WHERE
      menu_items.id = #{@menu_item_id} "
      result = SqlRunner.run(sql)
@@ -47,7 +47,7 @@ class Deal
   end
 
   def day()
-    sql = "SELECT name FROM days WHERE id = #{@day_id}"
+    sql = "SELECT days.name FROM days WHERE id = #{@day_id}"
     result = SqlRunner.run(sql)
     day = result.first['name']
   end

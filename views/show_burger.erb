@@ -9,6 +9,6 @@
  <h3> List of Deals </h3>
   <ul>
  <% @burger.deals.each do |deal| %>
-   <li> <%= deal.name %> at <%= deal.eatery %> on <%= deal.day  %> </li>
+   <li> <%= deal.name %> at <%= deal.eatery.name %> on <%= deal.day.name  %> </li>
    <%end %>
  </ul>

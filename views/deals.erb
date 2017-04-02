@@ -1,3 +1,4 @@
+<div class="main">
 <h3> All the Deals!</h3>
 <ul>
 <% @deals.each do |deal| %>
@@ -5,3 +6,5 @@
   on  <%= deal.day.name %> at <a href = "/eateries/<%= deal.eatery.id %>"><%= deal.eatery.name %> </a></li>
 <% end %>
 </ul>
+
+</div>

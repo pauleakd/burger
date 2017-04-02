@@ -6,6 +6,6 @@ require_relative('controllers/deals_controller')
 require_relative('models/day')
 
 get '/' do
-  @days = Day.all
+  @deals = Deal.all
   erb(:index)
 end

@@ -50,7 +50,7 @@ menu_item3.save
 menu_item4.save
 
 deal1 = Deal.new({
-  'name' => "30% OFF",
+  'name' => "10% OFF",
   'menu_item_id' => menu_item1.id,
   'day_id' => monday.id
   })
@@ -59,16 +59,16 @@ deal1 = Deal.new({
     'menu_item_id' => menu_item3.id,
     'day_id' => tuesday.id
     })
-    deal3 = Deal.new({
-      'name' => "30% OFF",
-      'menu_item_id' => menu_item4.id,
-      'day_id' => monday.id
-      })
-      deal4 = Deal.new({
-        'name' => "30% OFF",
-        'menu_item_id' => menu_item2.id,
-        'day_id' => saturday.id
-        })
+  deal3 = Deal.new({
+    'name' => "20% OFF",
+    'menu_item_id' => menu_item4.id,
+    'day_id' => monday.id
+    })
+  deal4 = Deal.new({
+    'name' => "30% OFF",
+    'menu_item_id' => menu_item2.id,
+    'day_id' => saturday.id
+    })
 
 deal1.save
 deal2.save

@@ -7,5 +7,6 @@ get "/burgers" do
 end
 
 get "/burgers/:id" do
-  @burger = burger.find(:id)
+  @burger = Burger.find(params[:id])
+  erb(:show_burger)
 end

@@ -1,0 +1,14 @@
+<h1> <%= @burger.name %> </h1>
+ <h3> List of Eateries </h3>
+  <ul>
+ <% @burger.eateries.each do |eatery| %>
+   <li> <%= eatery.name %> </li>
+   <%end %>
+ </ul>
+
+ <h3> List of Deals </h3>
+  <ul>
+ <% @burger.deals.each do |deal| %>
+   <li> <%= deal.name %> at <%= deal.eatery %> on <%= deal.day  %> </li>
+   <%end %>
+ </ul>

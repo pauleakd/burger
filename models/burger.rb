@@ -22,6 +22,10 @@ class Burger
   end
 
   def deals()
+    sql = "SELECT distinct deals.* FROM deals INNER JOIN menu_items ON deals.menu_item_id= menu_items.id
+    WHERE menu_items.burger_id = #{@id}"
+    deals = SqlRunner.run(sql)
+    return deals.map {|deal| Deal.new(deal)}
 
   end
 

@@ -1,6 +1,6 @@
 <h3> All the Deals!</h3>
 <ul>
 <% @deals.each do |deal| %>
-<li> <%= deal.name %> <%= deal.burger_name %> on  <%= deal.day %> at <%= deal.eatery %></li>
+<li> <%= deal.name %> <%= deal.burger.name %> on  <%= deal.day %> at <%= deal.eatery %></li>
 <% end %>
 </ul>

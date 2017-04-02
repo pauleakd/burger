@@ -8,5 +8,5 @@ end
 
 get "/eateries/:id" do
   @eatery = Eatery.find(params[:id])
-  erb(show_eatery)
+  erb(:show_eatery)
 end

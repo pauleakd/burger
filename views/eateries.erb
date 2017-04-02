@@ -1,6 +1,6 @@
 <h3> All the eateries!</h3>
 <ul>
 <% @eateries.each do |eatery| %>
-<li> <%= eatery.name %> </li>
+<li> <a href= "/eateries/<%= eatery.id %>"><%= eatery.name %> </a> </li>
 <% end %>
 </ul>

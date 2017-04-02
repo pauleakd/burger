@@ -40,4 +40,10 @@ class Eatery
     SqlRunner.run(sql)
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM eateries WHERE id = #{id}"
+    result = SqlRunner.run(sql).first
+    return Eatery.new(result)
+  end
+
 end

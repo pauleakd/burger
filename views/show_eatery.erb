@@ -1,14 +1,14 @@
 <h1> <%= @eatery.name %> </h1>
  <h3> List of Burgers </h3>
   <ul>
- <% @burger.eateries.each do |eatery| %>
-   <li> <%= eatery.name %> </li>
+ <% @eatery.burgers.each do |burger| %>
+   <li> <%= burger.name %> </li>
    <%end %>
  </ul>
 
  <h3> List of Deals </h3>
   <ul>
- <% @burger.deals.each do |deal| %>
-   <li> <%= deal.name %> at <%= deal.eatery %> on <%= deal.day  %> </li>
+ <% @eatery.deals.each do |deal| %>
+   <li> <%= deal.name %> at <%= deal.burger %> on <%= deal.day  %> </li>
    <%end %>
  </ul>

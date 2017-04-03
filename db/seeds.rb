@@ -116,9 +116,7 @@ deal3 = DealXforY.new({
     'x' => 2,
     'y' => 1
     });
-
-
-
+    
 deal1.save
 deal2.save
 deal3.save

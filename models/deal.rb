@@ -1,6 +1,7 @@
 require_relative('burger')
 require_relative('eatery')
 
+
 class Deal
   attr_reader :name, :id
   attr_accessor :menu_item_id
@@ -21,10 +22,16 @@ class Deal
   end
 
   def self.all()
-    sql = "SELECT * FROM deals"
+    sql = "SELECT * FROM deals_x_for_y"
     result = SqlRunner.run(sql)
-    deals = result.map{|deal| Deal.new(deal)}
-    return deals
+    deals = result.map{|deal| DealXforY.new(deal)}
+    sql = "SELECT * FROM deals_percent"
+    result = SqlRunner.run(sql)
+    deals2 = result.map{|deal| DealPercent.new(deal)}
+    sql = "SELECT * FROM deals_subtract"
+    result = SqlRunner.run(sql)
+    deals3 = result.map{|deal| DealSubtract.new(deal)}
+    return deals + deals2 + deals3
   end
 
   def self.delete_all()

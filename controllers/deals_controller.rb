@@ -22,6 +22,8 @@ post '/deals' do
   redirect "/deals/#{newlink}"
 end
 
-get '/deals/regular' do
-  
+get '/deals/regularp' do
+  @menu_items = MenuItem.all
+  @days = Day.all
+  erb(:new_deal_regularp)
 end

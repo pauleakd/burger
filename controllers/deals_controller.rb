@@ -33,3 +33,27 @@ post '/deals/new_deal_regularp' do
   @new_deal.save
   redirect(:deals)
 end
+
+get '/deals/regulars' do
+  @menu_items = MenuItem.all
+  @days = Day.all
+  erb(:new_deal_regulars)
+end
+
+post '/deals/new_deal_regulars' do
+  @new_deal = DealSubtract.new(params)
+  @new_deal.save
+  redirect(:deals)
+end
+
+get '/deals/special' do
+  @days = Day.all
+  @menu_items = MenuItem.all
+  erb(:new_deal_special)
+end
+
+post '/deals/new_deal_special' do
+  @new_deal = DealXforY.new(params)
+  @new_deal.save
+  redirect(:deals)
+end

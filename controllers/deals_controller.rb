@@ -27,3 +27,9 @@ get '/deals/regularp' do
   @days = Day.all
   erb(:new_deal_regularp)
 end
+
+post '/deals/new_deal_regularp' do
+  @new_deal = DealPercent.new(params)
+  @new_deal.save
+  redirect(:deals)
+end

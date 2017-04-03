@@ -7,7 +7,8 @@ h1 {
 body {
   background-color: grey;
   color: #DDD;
-  text-align: center;
+  text-align: left;
+  align-self: center;
   font-size: 30px;
   background-image: url("/images/3.jpeg");
   font-family: sans-serif;
@@ -21,7 +22,6 @@ nav p {
 }
 
 nav p a {
-  /*color: navy;*/
   font-size: 30px;
 }
 
@@ -54,4 +54,9 @@ h3 {
   margin: 20px;
   padding: 10px;
   background-color:rgba(0, 0, 0, 0.6);
+}
+
+#special {
+  color: red;
+  display: inline-block;
 }

@@ -33,9 +33,16 @@ class DealXforY < Deal
     SqlRunner.run(sql)
   end
 
+  def burger_price
+    sql = "SELECT menu_items.price FROM menu_items WHERE
+    menu_items.id = #{@menu_item_id} "
+    result = SqlRunner.run(sql).first
+    return result['price'].to_i * @x
+  end
+
   def calculate_savings()
-    total_price = self.burger_price.to_i * @x
-    discount = self.burger_price.to_i * @y
+    total_price = self.burger_price.to_i
+    discount = (total_price / @x) * @y
     savings = total_price - discount
     return savings
   end

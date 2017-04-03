@@ -7,5 +7,6 @@ require_relative('models/deal')
 
 get '/' do
   @deals = Deal.all
+  @deal = @deals.sample
   erb(:index)
 end

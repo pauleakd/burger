@@ -7,8 +7,8 @@ class DealSubtract < Deal
   attr_accessor :menu_item_id
 
   def save()
-    sql = "INSERT INTO deals_subtract (name, menu_item_id, day_id)
-     VALUES ('#{@name}', #{@menu_item_id}, #{@day_id})
+    sql = "INSERT INTO deals_subtract (name, menu_item_id, day_id, amount)
+     VALUES ('#{@name}', #{@menu_item_id}, #{@day_id}, #{@amount})
     RETURNING id;"
     result = SqlRunner.run(sql)
     @id = result.first['id'].to_i

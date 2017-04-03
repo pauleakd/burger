@@ -1,13 +1,25 @@
 <div class="main">
 <h3> All the Deals!</h3>
-<ul>
-<% @deals.each do |deal| %>
-<li> <%= deal.name %> <a href= "/burgers/<%= deal.burger.id %>">  <%= deal.burger.name %> </a>
-  on  <%= deal.day.name %> at <a href = "/eateries/<%= deal.eatery.id %>"><%= deal.eatery.name %> </a></li>
-<% end %>
-</ul>
-</div>
 
+<table>
+<tr>
+  <th>Deal </th>
+  <th>Original Price </th>
+  <th>You save </th>
+
+</tr>
+<% @deals.each do |deal| %>
+<tr>
+  <td> <%= deal.name %> <a href= "/burgers/<%= deal.burger.id %>">  <%= deal.burger.name %> </a>
+  on  <%= deal.day.name %> at <a href = "/eateries/<%= deal.eatery.id %>"><%= deal.eatery.name %> </a></td>
+  <td> <%= deal.burger_price %> </td>
+  <td> <%= deal.calculate_savings %> </td>
+</tr>
+<% end %>
+
+
+</table>
+</div>
 <div class="main">
   <a href = "/deals/new"> Add a new deal(admin only) </a>
 </div>

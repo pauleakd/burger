@@ -6,7 +6,8 @@
 
 
 <h3> We have a special deal for you today </h3>
-<h3> Tell us your name to find out more! </h3>
-
-<p style='font-size: 10px'> P.S. You are agreeing to your contact details being for sale </p>
+<p id="special"> <%= @deal.name %> <a id=special href= "/burgers/<%= @deal.burger.id %>">  <%= @deal.burger.name %> </a>
+  on  <%= @deal.day.name %> at <a id=special href = "/eateries/<%= @deal.eatery.id %>"><%= @deal.eatery.name %> </a></p>
+<p class> <a href = "/deals"> See the rest.... </a> </p>
+<p style='font-size: 10px'> P.S. We are not responsible for any indigestion caused by eating too many burgers </p>
 </div>

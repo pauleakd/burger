@@ -39,6 +39,10 @@ class Deal
     SqlRunner.run(sql)
   end
 
+  def self.return_all_types()
+    return ["DealSubtract", "DealPercent", "DealXforY"]
+  end 
+
   def burger()
     sql = "SELECT burgers.* FROM burgers INNER JOIN menu_items
      ON menu_items.burger_id = burgers.id WHERE

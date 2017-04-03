@@ -17,6 +17,19 @@ class MenuItem
     @id = result.first['id'].to_i
   end
 
+  def burger()
+    sql = "SELECT * FROM burgers WHERE id = #{@burger_id}"
+    result = SqlRunner.run(sql).first
+    return Burger.new(result)
+  end
+
+
+    def eatery()
+      sql = "SELECT * FROM eateries WHERE id = #{@eatery_id}"
+      result = SqlRunner.run(sql).first
+      return Eatery.new(result)
+    end
+
   def self.all()
     sql = "SELECT * FROM menu_items"
     result = SqlRunner.run(sql)

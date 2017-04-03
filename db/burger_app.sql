@@ -42,5 +42,5 @@ CREATE TABlE deals_percent (
   name VARCHAR(255),
   menu_item_id INT2 REFERENCES menu_items(id) ON DELETE CASCADE,
   day_id INT2 REFERENCES days(id) ON DELETE CASCADE,
-  amount INT2
+  amount NUMERIC
 );

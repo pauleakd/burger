@@ -101,8 +101,17 @@ deal1 = DealSubtract.new({
     'day_id' => saturday.id,
     'amount' => 1
     })
+deal2 = DealPercent.new({
+    'name' => "30% OFF",
+    'menu_item_id' => menu_item5.id,
+    'day_id' => monday.id,
+    'amount' => 0.3
+    })
+
+
 
 deal1.save
+deal2.save
 
 binding.pry
 nil

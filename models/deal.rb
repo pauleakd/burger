@@ -9,7 +9,7 @@ class Deal
     @id = nil || data['id'].to_i
     @menu_item_id = data['menu_item_id'].to_i
     @day_id = data['day_id'].to_i
-    @amount = data['amount'].to_i
+    @amount = data['amount']
   end
 
   def save()

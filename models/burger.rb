@@ -22,11 +22,26 @@ class Burger
   end
 
   def deals()
-    sql = "SELECT distinct deals.* FROM deals INNER JOIN menu_items ON deals.menu_item_id= menu_items.id
-    WHERE menu_items.burger_id = #{@id}"
-    deals = SqlRunner.run(sql)
-    return deals.map {|deal| Deal.new(deal)}
 
+    sql = "SELECT distinct deals_subtract.* FROM deals_subtract
+     INNER JOIN menu_items ON deals_subtract.menu_item_id= menu_items.id
+    WHERE menu_items.burger_id = #{@id}"
+    results = SqlRunner.run(sql)
+    deals1 = results.map {|deal| DealSubtract.new(deal)}
+
+    sql = "SELECT distinct deals_percent.* FROM deals_percent
+     INNER JOIN menu_items ON deals_percent.menu_item_id= menu_items.id
+    WHERE menu_items.burger_id = #{@id}"
+    results = SqlRunner.run(sql)
+    deals2 = results.map {|deal| DealPercent.new(deal)}
+
+    sql = "SELECT distinct deals_x_for_y.* FROM deals_x_for_y
+    INNER JOIN menu_items ON deals_x_for_y.menu_item_id= menu_items.id
+    WHERE menu_items.burger_id = #{@id}"
+    results = SqlRunner.run(sql)
+    deals3 = results.map {|deal| DealXforY.new(deal)}
+
+    return deals1 + deals2 + deals3
   end
 
   def self.all()

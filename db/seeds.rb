@@ -6,6 +6,7 @@ require_relative('../models/day')
 require_relative('../models/deal')
 require_relative('../models/deal_subtract')
 require_relative('../models/deal_percent')
+require_relative('../models/deal_x_for_y')
 
 MenuItem.delete_all
 Burger.delete_all
@@ -108,10 +109,19 @@ deal2 = DealPercent.new({
     'amount' => 0.3
     })
 
+deal3 = DealXforY.new({
+    'name' => "30% OFF",
+    'menu_item_id' => menu_item5.id,
+    'day_id' => monday.id,
+    'x' => 2,
+    'y' => 1
+    });
+
 
 
 deal1.save
 deal2.save
+deal3.save
 
 binding.pry
 nil

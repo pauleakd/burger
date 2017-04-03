@@ -6,11 +6,12 @@ class MenuItem
     @burger_id = data['burger_id']
     @eatery_id = data['eatery_id']
     @id = nil || data['id'].to_i
+    @price = data['price']
   end
 
   def save()
-    sql = "INSERT INTO menu_items (burger_id, eatery_id)
-    VALUES ('#{@burger_id}', '#{@eatery_id}')
+    sql = "INSERT INTO menu_items (burger_id, eatery_id, price)
+    VALUES ('#{@burger_id}', '#{@eatery_id}', '#{@price}')
     RETURNING id;"
     result = SqlRunner.run(sql)
     @id = result.first['id'].to_i

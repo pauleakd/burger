@@ -4,5 +4,6 @@ require('pry')
 
 get '/deals' do
   @deals = Deal.all
+  
   erb(:deals)
 end

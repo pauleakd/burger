@@ -1,4 +1,6 @@
-DROP TABLE IF EXISTS deals;
+DROP TABLE deals;
+DROP TABLE IF EXISTS deals_percent;
+DROP TABLE IF EXISTS deals_subtract;
 DROP TABLE IF EXISTS menu_items;
 DROP TABLE IF EXISTS burgers;
 DROP TABLE IF EXISTS eateries;
@@ -27,10 +29,18 @@ CREATE TABLE menu_items (
   price INT2
 );
 
-CREATE TABlE deals (
+CREATE TABlE deals_subtract (
   id SERIAL2 PRIMARY KEY,
   name VARCHAR(255),
   menu_item_id INT2 REFERENCES menu_items(id) ON DELETE CASCADE,
-  day_id INT2 REFERENCES days(id) ON DELETE CASCADE
+  day_id INT2 REFERENCES days(id) ON DELETE CASCADE,
+  amount INT2
+);
 
-)
+CREATE TABlE deals_percent (
+  id SERIAL2 PRIMARY KEY,
+  name VARCHAR(255),
+  menu_item_id INT2 REFERENCES menu_items(id) ON DELETE CASCADE,
+  day_id INT2 REFERENCES days(id) ON DELETE CASCADE,
+  amount INT2
+);

@@ -1,7 +1,7 @@
 require_relative('burger')
 require_relative('eatery')
 
-class Deal
+class DealPercent
   attr_reader :name, :id
   attr_accessor :menu_item_id
   def initialize(data)
@@ -13,8 +13,8 @@ class Deal
   end
 
   def save()
-    sql = "INSERT INTO deals (name, menu_item_id, day_id, amount)
-     VALUES ('#{@name}', #{@menu_item_id}, #{@day_id}, #{@amount})
+    sql = "INSERT INTO deals (name, menu_item_id, day_id)
+     VALUES ('#{@name}', #{@menu_item_id}, #{@day_id})
     RETURNING id;"
     result = SqlRunner.run(sql)
     @id = result.first['id'].to_i
@@ -55,12 +55,5 @@ class Deal
     result = SqlRunner.run(sql).first
     day = Day.new(result)
     return day
-  end
-
-  def burger_price
-    sql = "SELECT menu_items.price FROM menu_items WHERE
-    menu_items.id = #{@menu_item_id} "
-    result = SqlRunner.run(sql).first
-    return result['price']
   end
 end

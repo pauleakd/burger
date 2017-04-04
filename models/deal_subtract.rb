@@ -31,8 +31,15 @@ class DealSubtract < Deal
     SqlRunner.run(sql)
   end
 
+  def self.find(id)
+    sql = "SELECT * from deals_subtract WHERE id = #{id}"
+    result = SqlRunner.run(sql).first
+    return DealSubtract.new(result)
+  end
+
   def calculate_savings()
     savings = @amount
     return savings.to_f
   end
+
 end

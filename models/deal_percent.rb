@@ -37,5 +37,11 @@ class DealPercent < Deal
     SqlRunner.run(sql)
   end
 
+  def self.find(id)
+    sql = "SELECT * from deals_percent WHERE id = #{id}"
+    result = SqlRunner.run(sql).first
+    return DealPercent.new(result)
+  end
+
 
 end

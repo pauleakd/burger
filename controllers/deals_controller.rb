@@ -75,3 +75,18 @@ post '/deals/delete/DealXforY/:id' do
   DealXforY.delete(id)
   redirect '/deals'
 end
+
+get '/deals/update/DealXforY/:id' do
+  @deal = DealXforY.find(params[:id])
+  erb(:update_xfy)
+end
+
+get '/deals/update/DealSubtract/:id' do
+  @deal = DealSubtract.find(params[:id])
+  erb(:update_subtract)
+end
+
+get '/deals/update/DealPercent/:id' do
+  @deal = DealPercent.find(params[:id])
+  erb(:update_percent)
+end

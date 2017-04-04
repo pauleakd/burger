@@ -38,6 +38,12 @@ class DealXforY < Deal
     SqlRunner.run(sql)
   end
 
+  def self.find(id)
+    sql = "SELECT * from deals_x_for_y WHERE id = #{id}"
+    result = SqlRunner.run(sql).first
+    return DealXforY.new(result)
+  end
+
   def burger_price
     sql = "SELECT menu_items.price FROM menu_items WHERE
     menu_items.id = #{@menu_item_id} "

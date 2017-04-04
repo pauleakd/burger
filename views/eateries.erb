@@ -1,9 +1,12 @@
 
 <div class="main" style="padding: 10px; width: 60%;">
-  <h3> All the eateries!</h3>
+  <h3> All the eateries!</h3> <p> <a href='/eateries/new'> Add a new eatery </a> </p>
   <ul>
   <% @eateries.each do |eatery| %>
   <li> <a href= "/eateries/<%= eatery.id %>"><%= eatery.name %> </a> </li>
+  <p> <form action='/eateries/<%= eatery.id %>/delete' method="post">
+    <input type="submit" value="delete" />
+  </form> </p>
   <% end %>
   </ul>
 </div>

@@ -17,6 +17,11 @@ post "/burgers/new" do
   redirect '/burgers'
 end
 
+post '/burgers/:id/delete' do
+  Burger.delete(params[:id])
+  redirect "/burgers"
+end
+
 
 get "/burgers/:id" do
   @burger = Burger.find(params[:id])

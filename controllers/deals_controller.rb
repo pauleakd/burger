@@ -57,3 +57,21 @@ post '/deals/new_deal_special' do
   @new_deal.save
   redirect(:deals)
 end
+
+post '/deals/delete/DealSubtract/:id' do
+  id = params[:id]
+  DealSubtract.delete(id)
+  redirect '/deals'
+end
+
+post '/deals/delete/DealPercent/:id' do
+  id = params[:id]
+  DealPercent.delete(id)
+  redirect '/deals'
+end
+
+post '/deals/delete/DealXforY/:id' do
+  id = params[:id]
+  DealXforY.delete(id)
+  redirect '/deals'
+end

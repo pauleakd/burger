@@ -16,7 +16,7 @@
   <td> <%= (deal.burger_price - deal.calculate_savings)%> </td>
   <td> <%= deal.burger_price %> </td>
   <td> <%= deal.calculate_savings %> </td>
-  <td><form type=submit action="/deals/delete/<%=deal.class %>">
+  <td><form method=post action="/deals/delete/<%=deal.class %>/<%= deal.id %>">
     <input type="submit" value="Delete Deal" />
   </form>
 </td>

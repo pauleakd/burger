@@ -110,13 +110,13 @@ deal2 = DealPercent.new({
     })
 
 deal3 = DealXforY.new({
-    'name' => "30% OFF",
+    'name' => "2 for 1",
     'menu_item_id' => menu_item5.id,
-    'day_id' => monday.id,
+    'day_id' => tuesday.id,
     'x' => 2,
     'y' => 1
     });
-    
+
 deal1.save
 deal2.save
 deal3.save

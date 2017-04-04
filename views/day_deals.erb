@@ -1,0 +1,22 @@
+<div class="main">
+<h3> <%= @day.name %> deals</h3>
+
+<table>
+<tr>
+  <th></th>
+  <th>Original Price </th>
+  <th>You save </th>
+
+</tr>
+<% @deals.each do |deal| %>
+<tr>
+  <td> <%= deal.name %> <a href= "/burgers/<%= deal.burger.id %>">  <%= deal.burger.name %> </a>
+     at <a href = "/eateries/<%= deal.eatery.id %>"><%= deal.eatery.name %> </a></td>
+  <td> <%= deal.burger_price %> </td>
+  <td> <%= deal.calculate_savings %> </td>
+</tr>
+<% end %>
+
+
+</table>
+</div>

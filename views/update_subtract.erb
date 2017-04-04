@@ -1,9 +1,9 @@
-<form method="post" action="/deals/update/DealSubtract/">
+<form method="post" action="/deals/update/DealSubtract/<%= @deal.id%>">
   <div class="main">
   <label for="menu_item_select"> Select a menu item </label>
   <select id = "menu_item_select" name= "menu_item_id">
   <% @menu_items.each do |menu_item| %>
-      <option value= <%=menu_item.id  %>>
+      <option value= <%=menu_item.id  %> <%= "selected" if @deal.menu_item_id == menu_item.id %>>
          <%=menu_item.burger.name %> at <%= menu_item.eatery.name %> </option>
       <% end  %>
     </select>
@@ -22,13 +22,13 @@
 <div class="main">
 
   <label for="name_select"> Name Your Deal (e.g. £5 OFF) </label>
-  <input id = "amount_select" type = text name="name" value=<%= deal.name %>>
+  <input id = "amount_select" type = text name="name" value=<%= @deal.name %>>
   </div>
 
 <div class="main">
 
   <label for="amount_select"> Pick an amount (e.g. 5) </label>
-  <input id = "amount_select" type = numeric name="amount" value=<%= deal.amount %>>
+  <input id = "amount_select" type = numeric name="amount" value=<%= @deal.amount %>>
 
     <input type="submit" value="Update Deal" />
   </div>

@@ -21,6 +21,13 @@ class Deal
     @id = result.first['id'].to_i
   end
 
+  def update(table)
+    sql = "UPDATE #{table} SET name = '#{@name}',  menu_item_id = #{@menu_item_id},
+     day_id = #{@day_id} , amount = #{@amount}  WHERE id = #{id}"
+    SqlRunner.run(sql)
+  end
+
+
   def self.all()
     sql = "SELECT * FROM deals_x_for_y"
     result = SqlRunner.run(sql)

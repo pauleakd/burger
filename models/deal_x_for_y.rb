@@ -2,8 +2,8 @@ require_relative('burger')
 require_relative('eatery')
 
 class DealXforY < Deal
-  attr_reader :name, :id
-  attr_accessor :menu_item_id, :id
+  attr_reader :id, :x, :y, :day_id
+  attr_accessor :menu_item_id, :id, :name
   def initialize(data)
     @name = data['name']
     @id = nil || data['id'].to_i
@@ -20,6 +20,12 @@ class DealXforY < Deal
     result = SqlRunner.run(sql)
     @id = result.first['id'].to_i
   end
+
+  def update()
+      sql = "UPDATE deals_x_for_y SET name = '#{@name}',  menu_item_id = #{@menu_item_id},
+       day_id = #{@day_id} , x = #{@x}, y= #{y}  WHERE id = #{id}"
+      SqlRunner.run(sql)
+    end
 
   def self.all()
     sql = "SELECT * FROM deals_x_for_y"

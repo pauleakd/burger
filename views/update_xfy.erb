@@ -1,0 +1,42 @@
+<form method="post" action="/deals/update/DealXforY/<%= @deal.id%>">
+  <div class="main">
+  <label for="menu_item_select"> Select a menu item </label>
+  <select id = "menu_item_select" name= "menu_item_id">
+  <% @menu_items.each do |menu_item| %>
+      <option value=" <%=menu_item.id %>" <%= "selected" if @deal.menu_item_id == menu_item.id %>>
+         <%=menu_item.burger.name %> at <%= menu_item.eatery.name %> </option>
+      <% end  %>
+    </select>
+  </div>
+
+  <div class="main">
+  <label for="day_select"> Select a day </label>
+  <select id = "day_select" name= "day_id">
+    <% @days.each do |day| %>
+    <option value= <%= day.id %> <%= "selected" if @deal.day_id == day.id %>> <%= day.name %>  </option>
+    <% end %>
+  </select>
+
+</div>
+
+<div class="main">
+
+  <label for="name_select"> Name Your Deal (e.g. 2for1) </label>
+  <input id = "amount_select" type = text name="name" value=<%= @deal.name %>>
+  </div>
+
+<div class="main">
+
+  <label for="x_select"> Pick your x (e.g. 2) </label>
+  <input id = "x_select" type = numeric name="x" value=<%= @deal.x %>>
+
+  </div>
+
+  <div class="main">
+
+    <label for="x_select"> Pick your y (e.g. 1) </label>
+    <input id = "y_select" type = numeric name="y" value = <%= @deal.y %>>
+
+      <input type="submit" value="Update deal" />
+    </div>
+</form>

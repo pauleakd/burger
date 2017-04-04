@@ -77,16 +77,39 @@ post '/deals/delete/DealXforY/:id' do
 end
 
 get '/deals/update/DealXforY/:id' do
+  @menu_items = MenuItem.all
+  @days = Day.all
   @deal = DealXforY.find(params[:id])
   erb(:update_xfy)
 end
 
 get '/deals/update/DealSubtract/:id' do
+  @menu_items = MenuItem.all
+  @days = Day.all
   @deal = DealSubtract.find(params[:id])
   erb(:update_subtract)
 end
 
 get '/deals/update/DealPercent/:id' do
+  @menu_items = MenuItem.all
+  @days = Day.all
   @deal = DealPercent.find(params[:id])
   erb(:update_percent)
+end
+
+post '/deals/update/DealXforY/:id' do
+  deal = DealXforY.new(params)
+  deal.update
+  redirect '/deals'
+end
+
+post '/deals/update/DealSubtract/:id' do
+  deal = DealSubtract.new(params)
+  deal.update("deals_subtract")
+redirect '/deals'
+end
+
+post '/deals/update/DealPercent/:id' do
+  deal = DealPercent.new(params)
+  deal.update("deals_percent")
 end

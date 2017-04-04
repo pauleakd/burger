@@ -3,8 +3,8 @@ require_relative('eatery')
 require_relative('deal')
 
 class DealPercent < Deal
-  attr_reader :name, :id
-  attr_accessor :menu_item_id
+  attr_reader :name, :id, :amount, :day_id
+  attr_accessor :menu_item_id, :name
 
   def save()
     sql = "INSERT INTO deals_percent (name, menu_item_id, day_id, amount)

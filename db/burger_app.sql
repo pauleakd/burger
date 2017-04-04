@@ -27,7 +27,7 @@ CREATE TABLE menu_items (
   id SERIAL2 PRIMARY KEY,
   burger_id INT2 REFERENCES burgers(id) ON DELETE CASCADE,
   eatery_id INT2 REFERENCES eateries(id) ON DELETE CASCADE,
-  price INT2
+  price NUMERIC
 );
 
 CREATE TABlE deals_subtract (

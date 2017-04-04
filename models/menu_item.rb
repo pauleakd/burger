@@ -3,10 +3,10 @@ require_relative('../db/sql_runner')
 class MenuItem
   attr_reader :id, :name
   def initialize(data)
-    @burger_id = data['burger_id']
-    @eatery_id = data['eatery_id']
+    @burger_id = data['burger_id'].to_i
+    @eatery_id = data['eatery_id'].to_i
     @id = nil || data['id'].to_i
-    @price = data['price']
+    @price = data['price'].to_f
   end
 
   def save()
@@ -23,7 +23,6 @@ class MenuItem
     return Burger.new(result)
   end
 
-
     def eatery()
       sql = "SELECT * FROM eateries WHERE id = #{@eatery_id}"
       result = SqlRunner.run(sql).first
@@ -39,6 +38,11 @@ class MenuItem
 
   def self.delete_all()
     sql = "DELETE FROM menu_items"
+    SqlRunner.run(sql)
+  end
+
+  def self.delete(id)
+    sql = "DELETE FROM menu_items WHERE id = #{id}"
     SqlRunner.run(sql)
   end
 

@@ -32,5 +32,10 @@ class DealPercent < Deal
     SqlRunner.run(sql)
   end
 
+  def self.delete(id)
+    sql = "DELETE FROM deals_percent WHERE id = #{id}"
+    SqlRunner.run(sql)
+  end
+
 
 end

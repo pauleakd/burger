@@ -33,6 +33,11 @@ class DealXforY < Deal
     SqlRunner.run(sql)
   end
 
+  def self.delete(id)
+    sql = "DELETE FROM deals_x_for_y WHERE id = #{id}"
+    SqlRunner.run(sql)
+  end
+
   def burger_price
     sql = "SELECT menu_items.price FROM menu_items WHERE
     menu_items.id = #{@menu_item_id} "
@@ -46,4 +51,5 @@ class DealXforY < Deal
     savings = total_price - discount
     return savings
   end
+
 end

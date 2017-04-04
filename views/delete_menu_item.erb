@@ -1,0 +1,12 @@
+<form method="post" action="/menu_item/delete">
+  <div class="main">
+  <label for="menu_item_select"> Select a menu item </label>
+  <select id = "menu_item_select" name= "menu_item_id">
+  <% @menu_items.each do |menu_item| %>
+      <option value= <%=menu_item.id %>>
+         <%=menu_item.burger.name %> at <%= menu_item.eatery.name %> </option>
+      <% end  %>
+    </select>
+    <input type="submit" value="Delete item" />
+  </form>
+  </div>

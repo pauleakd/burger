@@ -26,6 +26,11 @@ class DealSubtract < Deal
     SqlRunner.run(sql)
   end
 
+  def self.delete(id)
+    sql = "DELETE FROM deals_subtract WHERE id = #{id}"
+    SqlRunner.run(sql)
+  end
+
   def calculate_savings()
     savings = @amount
     return savings.to_f

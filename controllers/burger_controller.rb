@@ -10,3 +10,7 @@ get "/burgers/:id" do
   @burger = Burger.find(params[:id])
   erb(:show_burger)
 end
+
+get "burgers/new" do
+  erb(:new_burger)
+end

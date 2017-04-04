@@ -28,6 +28,6 @@ class DealSubtract < Deal
 
   def calculate_savings()
     savings = @amount
-    return savings
+    return savings.to_f
   end
 end

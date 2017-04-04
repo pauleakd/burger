@@ -41,7 +41,7 @@ class Deal
 
   def self.return_all_types()
     return ["DealSubtract", "DealPercent", "DealXforY"]
-  end 
+  end
 
   def burger()
     sql = "SELECT burgers.* FROM burgers INNER JOIN menu_items
@@ -72,6 +72,8 @@ class Deal
     sql = "SELECT menu_items.price FROM menu_items WHERE
     menu_items.id = #{@menu_item_id} "
     result = SqlRunner.run(sql).first
-    return result['price']
+    return result['price'].to_f
   end
+
+
 end

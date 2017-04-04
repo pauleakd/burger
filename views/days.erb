@@ -1,0 +1,13 @@
+<div class="main">
+  <form method="post" action='/days'
+<label for="day_select"> Select a day </label>
+<select id = "day_select" name= "day_id">
+  <% @days.each do |day| %>
+  <option value= <%= day.id %>> <%= day.name %> </option>
+  <% end %>
+</select>
+
+<input type="submit" value="Show deals" />
+</form>
+
+<h5> <a href='/deals'> Or, see all deals here </a> </h5>

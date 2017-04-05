@@ -16,17 +16,17 @@ body {
 
 nav p {
   display: inline-block;
-  /*border: black;*/
   padding: 5px;
-  /*color: navy;*/
 }
 
 nav p a {
   font-size: 30px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
 }
 
 nav {
-  /*background-color: green;*/
   background-color:rgba(0, 0, 0, 0.6);
   width: 100%;
   padding: 20px
@@ -34,7 +34,6 @@ nav {
 }
 
 h5 {
-  /*color: navy;*/
   font-size: 30px;
 }
 
@@ -48,6 +47,10 @@ h3 {
   font-size: 30px;
 }
 
+/*li  {
+  display: inline-block;
+}*/
+
 
 .main {
   display: inline-block;
@@ -57,7 +60,27 @@ h3 {
   background-color:rgba(0, 0, 0, 0.6);
 }
 
+.button {
+  float: right;
+  clear: both;
+}
+
 #special {
   color: red;
+  display: inline-block;
+}
+
+.burger-delete {
+  float: right;
+  margin-left: 40px;
+  display: inline-block;
+}
+
+.burger-list li {
+  max-width: 45%;
+}
+
+.eatery-link {
+  float: right;
   display: inline-block;
 }

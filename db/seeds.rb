@@ -41,20 +41,29 @@ burger4.save
 burger5.save
 
 eatery1 = Eatery.new({'name' => "Codeclan Bar"})
-eatery3 = Eatery.new({'name' => "McDonalds"})
-eatery2 = Eatery.new({'name' => "Hippie Bar"})
+eatery2 = Eatery.new({'name' => "McDonalds"})
+eatery3 = Eatery.new({'name' => "Hippie Bar"})
+eatery4 = Eatery.new({'name' => "Burger King"})
+eatery5 = Eatery.new({'name' => "Sunshine Land"})
 eatery1.save
 eatery2.save
 eatery3.save
+eatery4.save
+eatery5.save
 
 menu_item1 = MenuItem.new({'burger_id' => burger1.id, 'eatery_id' => eatery3.id, 'price' => 5})
-menu_item2 = MenuItem.new({'burger_id' => burger2.id, 'eatery_id' => eatery1.id, 'price' => 5})
-menu_item3 = MenuItem.new({'burger_id' => burger3.id, 'eatery_id' => eatery2.id, 'price' => 5})
-menu_item4 = MenuItem.new({'burger_id' => burger2.id, 'eatery_id' => eatery3.id, 'price' => 5})
-menu_item5 = MenuItem.new({'burger_id' => burger4.id, 'eatery_id' => eatery1.id, 'price' => 5})
+menu_item2 = MenuItem.new({'burger_id' => burger2.id, 'eatery_id' => eatery1.id, 'price' => 3})
+menu_item3 = MenuItem.new({'burger_id' => burger3.id, 'eatery_id' => eatery2.id, 'price' => 9})
+menu_item4 = MenuItem.new({'burger_id' => burger2.id, 'eatery_id' => eatery3.id, 'price' => 6})
+menu_item5 = MenuItem.new({'burger_id' => burger5.id, 'eatery_id' => eatery1.id, 'price' => 8})
 menu_item5 = MenuItem.new({'burger_id' => burger4.id, 'eatery_id' => eatery3.id, 'price' => 5})
 menu_item6 = MenuItem.new({'burger_id' => burger4.id, 'eatery_id' => eatery2.id, 'price' => 5})
 menu_item7 = MenuItem.new({'burger_id' => burger3.id, 'eatery_id' => eatery1.id, 'price' => 5})
+menu_item7 = MenuItem.new({'burger_id' => burger2.id, 'eatery_id' => eatery4.id, 'price' => 5})
+menu_item8 = MenuItem.new({'burger_id' => burger3.id, 'eatery_id' => eatery5.id, 'price' => 10})
+menu_item9 = MenuItem.new({'burger_id' => burger1.id, 'eatery_id' => eatery4.id, 'price' => 15})
+menu_item10 = MenuItem.new({'burger_id' => burger5.id, 'eatery_id' => eatery5.id, 'price' => 6})
+menu_item11 = MenuItem.new({'burger_id' => burger4.id, 'eatery_id' => eatery3.id, 'price' => 5})
 menu_item1.save
 menu_item2.save
 menu_item3.save
@@ -62,6 +71,10 @@ menu_item4.save
 menu_item5.save
 menu_item6.save
 menu_item7.save
+menu_item8.save
+menu_item9.save
+menu_item10.save
+menu_item11.save
 
 
 # deal1 = Deal.new({
@@ -108,18 +121,44 @@ deal2 = DealPercent.new({
     'day_id' => monday.id,
     'amount' => 0.3
     })
+deal3 = DealPercent.new({
+    'name' => "10% OFF",
+    'menu_item_id' => menu_item6.id,
+    'day_id' => monday.id,
+    'amount' => 0.1
+      })
 
-deal3 = DealXforY.new({
+deal4 = DealXforY.new({
     'name' => "2 for 1",
-    'menu_item_id' => menu_item5.id,
+    'menu_item_id' => menu_item7.id,
     'day_id' => tuesday.id,
     'x' => 2,
     'y' => 1
     });
+deal7= DealXforY.new({
+    'name' => "3 for 2",
+    'menu_item_id' => menu_item9.id,
+    'day_id' => friday.id,
+    'x' => 3,
+    'y' => 2
+    });
+deal5 = DealPercent.new({
+    'name' => "30% OFF",
+    'menu_item_id' => menu_item11.id,
+    'day_id' => monday.id,
+    'amount' => 0.3
+      });
+  deal6 = DealSubtract.new({
+    'name' => "£3 OFF",
+    'menu_item_id' => menu_item8.id,
+    'day_id' => tuesday.id,
+    'amount' => 3
+    })
 
 deal1.save
 deal2.save
 deal3.save
-
-binding.pry
-nil
+deal4.save
+deal5.save
+deal6.save
+deal7.save

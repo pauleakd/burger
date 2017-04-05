@@ -1,11 +1,16 @@
 <div class="main">
 <h1> <%= @eatery.name %> </h1>
+
  <h3> List of Burgers </h3>
-  <ul>
- <% @eatery.burgers.each do |burger| %>
-   <li> <%= burger.name %> </li>
+  <table>
+     <% @menu_items.each do |menu_item| %>
+    <tr> <td> <%= menu_item.burger.name %> </td>
+    <td><%= menu_item.price %></td>
+
+
+
    <%end %>
- </ul>
+ </table>
 
  <h3> List of Deals </h3>
   <ul>
@@ -14,3 +19,6 @@
    <%end %>
  </ul>
  </div>
+
+ <div class="main">
+   <h3> <a href="/eateries" > Go back to the list of eateries to edit </a> </h3>

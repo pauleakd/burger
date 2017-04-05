@@ -2,7 +2,7 @@ require_relative('burger')
 require_relative('eatery')
 
 class DealXforY < Deal
-  attr_reader :id, :x, :y, :day_id
+  attr_reader :id, :x, :y, :day_id, :name
   attr_accessor :menu_item_id, :id, :name
   def initialize(data)
     @name = data['name']
@@ -27,6 +27,20 @@ class DealXforY < Deal
       SqlRunner.run(sql)
     end
 
+  def burger_price
+    sql = "SELECT menu_items.price FROM menu_items WHERE
+    menu_items.id = #{@menu_item_id} "
+    result = SqlRunner.run(sql).first
+    return result['price'].to_f * @x
+  end
+
+  def calculate_savings()
+    total_price = self.burger_price.to_f
+    discount = (total_price / @x) * @y
+    savings = total_price - discount
+    return savings
+  end
+
   def self.all()
     sql = "SELECT * FROM deals_x_for_y"
     result = SqlRunner.run(sql)
@@ -50,18 +64,5 @@ class DealXforY < Deal
     return DealXforY.new(result)
   end
 
-  def burger_price
-    sql = "SELECT menu_items.price FROM menu_items WHERE
-    menu_items.id = #{@menu_item_id} "
-    result = SqlRunner.run(sql).first
-    return result['price'].to_f * @x
-  end
-
-  def calculate_savings()
-    total_price = self.burger_price.to_f
-    discount = (total_price / @x) * @y
-    savings = total_price - discount
-    return savings
-  end
 
 end

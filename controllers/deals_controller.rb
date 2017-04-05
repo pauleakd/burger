@@ -9,12 +9,12 @@ require('pry')
 
 get '/deals' do
   @deals = Deal.all
-  erb(:deals)
+  erb(:"deals/deals")
 end
 
 get '/deals/new' do
   @menu_items = MenuItem.all
-  erb(:new_deal)
+  erb(:"/deals/new_deal")
 end
 
 post '/deals' do
@@ -25,37 +25,37 @@ end
 get '/deals/regularp' do
   @menu_items = MenuItem.all
   @days = Day.all
-  erb(:new_deal_regularp)
+  erb(:"/deals/new_deal_regularp")
 end
 
 post '/deals/new_deal_regularp' do
   @new_deal = DealPercent.new(params)
   @new_deal.save
-  redirect(:deals)
+  redirect "/deals"
 end
 
 get '/deals/regulars' do
   @menu_items = MenuItem.all
   @days = Day.all
-  erb(:new_deal_regulars)
+  erb(:"deals/new_deal_regulars")
 end
 
 post '/deals/new_deal_regulars' do
   @new_deal = DealSubtract.new(params)
   @new_deal.save
-  redirect(:deals)
+  redirect "/deals"
 end
 
 get '/deals/special' do
   @days = Day.all
   @menu_items = MenuItem.all
-  erb(:new_deal_special)
+  erb(:"deals/new_deal_special")
 end
 
 post '/deals/new_deal_special' do
   @new_deal = DealXforY.new(params)
   @new_deal.save
-  redirect(:deals)
+  redirect "/deals"
 end
 
 post '/deals/delete/DealSubtract/:id' do
@@ -80,21 +80,21 @@ get '/deals/update/DealXforY/:id' do
   @menu_items = MenuItem.all
   @days = Day.all
   @deal = DealXforY.find(params[:id])
-  erb(:update_xfy)
+  erb(:"deals/update_xfy")
 end
 
 get '/deals/update/DealSubtract/:id' do
   @menu_items = MenuItem.all
   @days = Day.all
   @deal = DealSubtract.find(params[:id])
-  erb(:update_subtract)
+  erb(:"deals/update_subtract")
 end
 
 get '/deals/update/DealPercent/:id' do
   @menu_items = MenuItem.all
   @days = Day.all
   @deal = DealPercent.find(params[:id])
-  erb(:update_percent)
+  erb(:"deals/update_percent")
 end
 
 post '/deals/update/DealXforY/:id' do
@@ -106,10 +106,11 @@ end
 post '/deals/update/DealSubtract/:id' do
   deal = DealSubtract.new(params)
   deal.update("deals_subtract")
-redirect '/deals'
+  redirect '/deals'
 end
 
 post '/deals/update/DealPercent/:id' do
   deal = DealPercent.new(params)
   deal.update("deals_percent")
+  redirect '/deals'
 end

@@ -3,7 +3,7 @@ require_relative('eatery')
 require_relative('deal')
 
 class DealSubtract < Deal
-  attr_reader :name, :id, :amount, :day_id
+  attr_reader :id, :amount, :day_id, :name
   attr_accessor :menu_item_id, :name
 
   def save()
@@ -12,6 +12,11 @@ class DealSubtract < Deal
     RETURNING id;"
     result = SqlRunner.run(sql)
     @id = result.first['id'].to_i
+  end
+
+  def calculate_savings()
+    savings = @amount
+    return savings.to_f
   end
 
   def self.all()
@@ -35,11 +40,6 @@ class DealSubtract < Deal
     sql = "SELECT * from deals_subtract WHERE id = #{id}"
     result = SqlRunner.run(sql).first
     return DealSubtract.new(result)
-  end
-
-  def calculate_savings()
-    savings = @amount
-    return savings.to_f
   end
 
 end

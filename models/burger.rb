@@ -68,7 +68,4 @@ class Burger
   end
 
 
-
-
-
 end

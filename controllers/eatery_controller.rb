@@ -3,11 +3,11 @@ require_relative('../models/eatery')
 
 get "/eateries" do
   @eateries = Eatery.all
-  erb(:eateries)
+  erb(:"eateries/eateries")
 end
 
 get "/eateries/new" do
-  erb(:new_eatery)
+  erb(:"eateries/new_eatery")
 end
 
 post "/eateries/new" do
@@ -23,5 +23,6 @@ end
 
 get "/eateries/:id" do
   @eatery = Eatery.find(params[:id])
-  erb(:show_eatery)
+  @menu_items = @eatery.menu_items
+  erb(:"eateries/show_eatery")
 end

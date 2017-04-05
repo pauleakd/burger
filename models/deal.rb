@@ -27,30 +27,6 @@ class Deal
     SqlRunner.run(sql)
   end
 
-
-  def self.all()
-    sql = "SELECT * FROM deals_x_for_y"
-    result = SqlRunner.run(sql)
-    deals = result.map{|deal| DealXforY.new(deal)}
-    sql = "SELECT * FROM deals_percent"
-    result = SqlRunner.run(sql)
-    deals2 = result.map{|deal| DealPercent.new(deal)}
-    sql = "SELECT * FROM deals_subtract"
-    result = SqlRunner.run(sql)
-    deals3 = result.map{|deal| DealSubtract.new(deal)}
-    return deals + deals2 + deals3
-  end
-
-  def self.delete_all()
-    sql = "DELETE FROM deals"
-    SqlRunner.run(sql)
-  end
-
-  def self.return_all_types()
-    return ["DealSubtract", "DealPercent", "DealXforY"]
-  end
-
-
   def burger()
     sql = "SELECT burgers.* FROM burgers INNER JOIN menu_items
      ON menu_items.burger_id = burgers.id WHERE
@@ -82,6 +58,29 @@ class Deal
     result = SqlRunner.run(sql).first
     return result['price'].to_f
   end
+
+  def self.all()
+    sql = "SELECT * FROM deals_x_for_y"
+    result = SqlRunner.run(sql)
+    deals = result.map{|deal| DealXforY.new(deal)}
+    sql = "SELECT * FROM deals_percent"
+    result = SqlRunner.run(sql)
+    deals2 = result.map{|deal| DealPercent.new(deal)}
+    sql = "SELECT * FROM deals_subtract"
+    result = SqlRunner.run(sql)
+    deals3 = result.map{|deal| DealSubtract.new(deal)}
+    return deals + deals2 + deals3
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM deals"
+    SqlRunner.run(sql)
+  end
+
+  def self.return_all_types()
+    return ["DealSubtract", "DealPercent", "DealXforY"]
+  end
+
 
 
 end

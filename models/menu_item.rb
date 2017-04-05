@@ -9,6 +9,10 @@ class MenuItem
     @price = data['price'].to_f
   end
 
+  def price
+    return "£#{@price}"
+  end
+
   def save()
     sql = "INSERT INTO menu_items (burger_id, eatery_id, price)
     VALUES ('#{@burger_id}', '#{@eatery_id}', '#{@price}')
@@ -23,11 +27,11 @@ class MenuItem
     return Burger.new(result)
   end
 
-    def eatery()
-      sql = "SELECT * FROM eateries WHERE id = #{@eatery_id}"
-      result = SqlRunner.run(sql).first
-      return Eatery.new(result)
-    end
+  def eatery()
+    sql = "SELECT * FROM eateries WHERE id = #{@eatery_id}"
+    result = SqlRunner.run(sql).first
+    return Eatery.new(result)
+  end
 
   def self.all()
     sql = "SELECT * FROM menu_items"
@@ -50,5 +54,5 @@ class MenuItem
     sql = "SELECT * FROM menu_items WHERE id = #{id}"
     result = SqlRunner.run(sql).first
     return MenuItem.new(result)
-  end 
+  end
 end

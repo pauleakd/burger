@@ -3,7 +3,7 @@ require('sinatra')
 
 get '/days' do
   @days = Day.all
-  erb(:days)
+  erb(:"/days/days")
 end
 
 post '/days' do
@@ -14,5 +14,5 @@ end
 get '/days/:id' do
   @day = Day.find(params[:id])
   @deals = Day.find_deals(params[:id])
-  erb(:day_deals)
+  erb(:"/days/day_deals")
 end

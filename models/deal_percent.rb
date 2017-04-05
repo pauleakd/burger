@@ -3,7 +3,7 @@ require_relative('eatery')
 require_relative('deal')
 
 class DealPercent < Deal
-  attr_reader :name, :id, :amount, :day_id
+  attr_reader :id, :amount, :day_id, :name
   attr_accessor :menu_item_id, :name
 
   def save()

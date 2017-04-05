@@ -3,12 +3,12 @@ require_relative('../models/burger')
 
 get "/burgers" do
   @burgers = Burger.all
-  erb(:burgers)
+  erb(:"/burgers/burgers")
 end
 
 
 get "/burgers/new" do
-  erb(:new_burger)
+  erb(:"/burgers/new_burger")
 end
 
 post "/burgers/new" do
@@ -25,5 +25,5 @@ end
 
 get "/burgers/:id" do
   @burger = Burger.find(params[:id])
-  erb(:show_burger)
+  erb(:"/burgers/show_burger")
 end

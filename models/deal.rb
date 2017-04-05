@@ -13,13 +13,13 @@ class Deal
     @amount = data['amount']
   end
 
-  def save()
-    sql = "INSERT INTO deals (name, menu_item_id, day_id, amount)
-     VALUES ('#{@name}', #{@menu_item_id}, #{@day_id}, #{@amount})
-    RETURNING id;"
-    result = SqlRunner.run(sql)
-    @id = result.first['id'].to_i
-  end
+  # def save()
+  #   sql = "INSERT INTO deals (name, menu_item_id, day_id, amount)
+  #    VALUES ('#{@name}', #{@menu_item_id}, #{@day_id}, #{@amount})
+  #   RETURNING id;"
+  #   result = SqlRunner.run(sql)
+  #   @id = result.first['id'].to_i
+  # end
 
   def update(table)
     sql = "UPDATE #{table} SET name = '#{@name}',  menu_item_id = #{@menu_item_id},
@@ -70,15 +70,6 @@ class Deal
     result = SqlRunner.run(sql)
     deals3 = result.map{|deal| DealSubtract.new(deal)}
     return deals + deals2 + deals3
-  end
-
-  def self.delete_all()
-    sql = "DELETE FROM deals"
-    SqlRunner.run(sql)
-  end
-
-  def self.return_all_types()
-    return ["DealSubtract", "DealPercent", "DealXforY"]
   end
 
 

@@ -1,13 +1,23 @@
-
 <div class="main" style="padding: 10px; width: 60%;">
-  <h3> All the eateries!</h3> <p> <a href='/eateries/new'> Add a new eatery </a> </p>
-  <p > <a href='/menu_item'> Add a burger to an eatery </a> </p>
-  <ul class="burger-list">
+  <h1> All the eateries</h1>
+
+  <table>
   <% @eateries.each do |eatery| %>
-  <li > <a href= "/eateries/<%= eatery.id %>"><%= eatery.name %> </a>
-  <form action='/eateries/<%= eatery.id %>/delete' method="post" class="burger-delete">
-    <input type="submit" value="delete" />
-  </form> </li>
+  <tr >
+    <td> <a href= "/eateries/<%= eatery.id %>"><%= eatery.name %> </a> </td>
+    <td> <form action='/eateries/<%= eatery.id %>/delete' method="post" class="burger-delete ">
+          <input type="submit" value="delete" /> </td>
+  </form> </tr>
   <% end %>
-  </ul>
+</table>
+</div>
+<div class= "main">
+<table>
+  <tr>
+<td> <a href='/eateries/new'> Add a new eatery </a> </td>
+<td> <a href='/menu_item' class="burger-delete"> Add a burger to an eatery </a> </td>
+<td> <a href='/menu_item/delete' class="burger-delete"> Remove a burger from an eatery </a> </td>
+
+</tr>
+</table>
 </div>

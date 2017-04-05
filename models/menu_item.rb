@@ -10,7 +10,7 @@ class MenuItem
   end
 
   def price
-    return "£#{@price}"
+    return @price
   end
 
   def save()

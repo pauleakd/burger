@@ -47,9 +47,15 @@ h3 {
   font-size: 30px;
 }
 
-/*li  {
-  display: inline-block;
-}*/
+input {
+  font-size: 14pt;
+}
+
+option, select {
+  font-size: 14pt;
+}
+
+
 
 
 .main {
@@ -68,6 +74,7 @@ h3 {
 #special {
   color: red;
   display: inline-block;
+  margin:auto;
 }
 
 .burger-delete {
@@ -78,9 +85,4 @@ h3 {
 
 .burger-list li {
   max-width: 45%;
-}
-
-.eatery-link {
-  float: right;
-  display: inline-block;
 }

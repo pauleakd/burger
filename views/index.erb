@@ -1,14 +1,16 @@
-``
+
 
 <div class="main">
 
 <h1 > Welcome to The Burger App!</h1>
-
+<h2> We will not leave you hungry <h2>
+</br>
 <% if @deal != nil %>
   <h3> We have a special deal for you today </h3>
-
   <p id="special"> <%= @deal.name %> <a id=special href= "/burgers/<%= @deal.burger.id %>">  <%= @deal.burger.name %> </a>
   on  <%= @deal.day.name %> at <a id=special href = "/eateries/<%= @deal.eatery.id %>"><%= @deal.eatery.name %> </a></p>
+
+
   <p> <a href = "/deals"> See the rest.... </a> </p>
   <p> <a href = "/days"> Or search by day of the week </a> </p>
 

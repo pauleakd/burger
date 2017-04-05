@@ -1,12 +1,14 @@
 <div class="main">
 
-<h3> All the burgers</h3> <p> <a href='/burgers/new'> Add a new burger </a></p>
-<ul class="burger-list">
+<h1> All the burgers</h1> <p> <a href='/burgers/new'> Add a new burger </a></p>
+<table>
+
 <% @burgers.each do |burger| %>
- <li> <a href="/burgers/<%=burger.id %>"> <%= burger.name %> </a>
-   <form action='/burgers/<%= burger.id %>/delete' method="post" class="burger-delete">
-  <input type="submit" value="delete" /> </li>
-</form>
+<tr>
+ <td> <a href="/burgers/<%=burger.id %>"> <%= burger.name %> </a> </td>
+  <td> <form action='/burgers/<%= burger.id %>/delete' method="post" class="burger-delete">
+  <input type="submit" value="delete" />
+</form> </td>
 <% end %>
 </ul>
 

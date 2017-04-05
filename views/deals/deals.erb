@@ -10,12 +10,12 @@
 
   </tr>
   <% @deals.each do |deal| %>
-  <tr>
-    <td> <%= deal.name %> <a href= "/burgers/<%= deal.burger.id %>">  <%= deal.burger.name %> </a>
+  <tr >
+    <td ><%= deal.name %> <a href= "/burgers/<%= deal.burger.id %>">  <%= deal.burger.name %> </a>
       on  <%= deal.day.name %> at <a href = "/eateries/<%= deal.eatery.id %>"><%= deal.eatery.name %> </a></td>
-      <td> <%= (deal.burger_price - deal.calculate_savings)%> </td>
-      <td> <%= deal.burger_price %> </td>
-      <td> <%= deal.calculate_savings %> </td>
+      <td> <%= '£%.2f' % (deal.burger_price - deal.calculate_savings)%> </td>
+      <td> <%= '£%.2f' % deal.burger_price %> </td>
+      <td> <%= '£%.2f' % deal.calculate_savings %> </td>
       <td>
         <form method=post action="/deals/delete/<%=deal.class %>/<%= deal.id %>">
           <input type="submit" value="Delete Deal" />
@@ -30,12 +30,10 @@
     <% end %>
 
 
-
-
 </table>
 <% else %>
   <h3> There are no active deals </h3>
-<%end  %>
+<% end  %>
 </div>
 
 <div class="main">

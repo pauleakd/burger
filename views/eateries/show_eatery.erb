@@ -5,10 +5,8 @@
   <table>
      <% @menu_items.each do |menu_item| %>
     <tr> <td> <%= menu_item.burger.name %> </td>
-    <td><%= menu_item.price %></td>
-
-
-
+      <td/> 
+    <td><%= '£%.2f' % menu_item.price %></td>
    <%end %>
  </table>
 

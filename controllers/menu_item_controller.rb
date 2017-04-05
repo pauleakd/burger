@@ -10,12 +10,13 @@ post '/menu_item' do
   new_item = MenuItem.new(params)
   new_item.save
   @eatery = Eatery.find(params['eatery_id'])
+  @menu_items = @eatery.menu_items
   erb(:"eateries/show_eatery")
 end
 
 get "/menu_item/delete" do
   @menu_items = MenuItem.all
-  erb(:"eateries/delete_menu_item")
+  erb(:"menu_items/delete_menu_item")
 end
 
 post "/menu_item/delete" do

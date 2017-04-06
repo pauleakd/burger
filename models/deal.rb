@@ -13,14 +13,6 @@ class Deal
     @amount = data['amount']
   end
 
-  # def save()
-  #   sql = "INSERT INTO deals (name, menu_item_id, day_id, amount)
-  #    VALUES ('#{@name}', #{@menu_item_id}, #{@day_id}, #{@amount})
-  #   RETURNING id;"
-  #   result = SqlRunner.run(sql)
-  #   @id = result.first['id'].to_i
-  # end
-
   def update(table)
     sql = "UPDATE #{table} SET name = '#{@name}',  menu_item_id = #{@menu_item_id},
      day_id = #{@day_id} , amount = #{@amount}  WHERE id = #{id}"

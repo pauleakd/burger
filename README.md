@@ -1,4 +1,4 @@
-# burgerproject
+# burger
 
 The goal of this project was to practice Ruby, Sinatra and SQL by building a web application. 
 
